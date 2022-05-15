@@ -1,10 +1,38 @@
+* {
+    margin: 10% 10% 10% 10%;
+    color: rgb(251, 253, 253);
+}
+
 body {
-    background-image: linear-gradient(rgb(249, 110, 4), rgb(9, 249, 253));
+    background-image: linear-gradient(to right, rgb(249, 110, 4), rgb(9, 249, 253));
     background-color: #28f4f7;
-    height: 100%;
     margin: 0%;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: x-large;
+    font-style: italic;
 }
+
+h1 {
+    color: rgb(255, 213, 0);
+    v
+}
+
+.playBtn {
+    color: hotpink;
+    background-color: #fa8bff;
+    background-image: linear-gradient(45deg, #fa8bff 0%, #2bd2ff 52%, #2bff88 90%);
+    border-radius: 45%;
+    border-color: hotpink;
+}
+
+
+
 
 
