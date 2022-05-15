@@ -1,6 +1,6 @@
 * {
-    margin: 10% 10% 10% 10%;
-    color: rgb(251, 253, 253);
+    margin: 2%;
+    color: rgb(16, 142, 142);
 }
 
 body {
@@ -21,10 +21,14 @@ body {
 
 h1 {
     color: rgb(255, 213, 0);
-    v
 }
-
-.playBtn {
+p {
+    border-style: dotted;
+    border-width: 15px;
+    border-color: #edf728;
+    border-radius: 1%;
+}
+.play-btn {
     color: hotpink;
     background-color: #fa8bff;
     background-image: linear-gradient(45deg, #fa8bff 0%, #2bd2ff 52%, #2bff88 90%);
@@ -32,6 +36,9 @@ h1 {
     border-color: hotpink;
 }
 
+.hidden {
+    display: none;
+}
 
 
 

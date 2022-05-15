@@ -1,54 +1,117 @@
+var currentChallengeIndex = 0;
 var counter = 20;
+var counterindex;
 var challenges = [
     {
-       challenge: '#1?',
+       challenge: "Is JavaScript Case Sensitive?",
        answers: [
-           'A',
-           'B',
-           'C',
-           'D',
+           "Yes",
+           "No",
+           "Godzilla",
+           "Maybe gurl Idk",
        ],
-    answer: 'C'
+        answer: 'Yes',
     },
     {
-        challenge: '#2',
+        challenge: 'Which of the following is not an appropriate answer to a boolean',
         answers: [
-            'A',
-            'B',
-            'C',
-            'D',
+            'True',
+            'False',
+            'Meh',
         ],
-        answer: 'D',
+        answer: 'Meh',
     },
     {
-        challenge: '#3',
+        challenge: 'Is JavaScript synonomous with Java',
         answers: [
-            'a',
-            'b',
-            'c',
-            'd',
+            'Yes',
+            'No',
         ],
-        answer: 'a', 
+        answer: 'No', 
     },
 ];
-
- var playBtn = document.getElementById('playBtn');
- var playWindow = document.getElementById('playWindow');
- var challenegeDisplay = document.getElementById('challengeDisplay');
- var challengeText = document.getElementById('challengeText');
- var answerBox = document.getElementById('answerBox');
+ var playBtn = document.getElementById('play-btn');
+ var playWindow = document.getElementById('play-window');
+ var challengeDisplay = document.getElementById('challenge-display');
+ var challengeText = document.getElementById('challenge-text');
+ var answerBox = document.getElementById('answer-box');
+ var counterSpan = document.getElementById('counter');
+ var highScoreScreen = document.getElementById('high-score-screen');
  
- function play(){
-     playWindow.classList.add('hidden');
-     challengeText.textContent = answer;
 
-     for (var i = 0; i < challenges.length; i++) {
-         const answer = challenges[i];
-     }
+    function startTime() {
+    counterInterval = setInterval(() => {
+        counter--;
+
+        if (counter > 0) {
+            counterSpan.textContent = counter;
+        }
+        if (counter <= 0) {
+            clearInterval(counterInterval);
+            endQuiz();
+        }
+    }, 1000);
+}
+
+function displayChallenge() {
+    challengeText.textContent = challenges[currentChallengeIndex].challenge;
+
+    var answers = challenges[currentChallengeIndex].answers;
+
+    answerBox.innerHTML= '';
+
+    for (var i = 0; i < answers.length; i++) {
+        const answer = answers[i];
+        var answerElementButton = document.createElement ('button');
+        answerElementButton.textContent = answer;
+        answerElementButton.addEventListener('click' , checkAnswer);
+    answerBox.appendChild(answerElementButton);
+ }
+}
+function checkAnswer(event) {
+    var answerClicked = event.target;
+    var currentChallenge = challenges[currentChallengeIndex];
+    var isCorrect = answerClicked.innerText === currentChallenge.answer;
+    console.log("isCorrect:  " + isCorrect);
+
+
+    if (!isCorrect) {
+        counter = counter - 5;
+    }
+currentChallengeIndex  = currentChallengeIndex + 1;
+
+if (currentChallengeIndex < challenges.length) {
+    displayChallenge();
+}
+else {
+    endQuiz()
+}
+}
+function endQuiz() {
+    clearInterval(counterInterval);
+    challengeDisplay.classList.add('hidden');
+    highScoreScreen.classList.remove('hidden');
+    var prompt = window.prompt ('Enter your initials to save your score!')
+    console.log(prompt);
+    var highscore = localStorage.getItem("JSQuizHS");
+
+if(highscore !== null){
+    if (counter > highscore) {
+        localStorage.setItem("JSQuizHS",[prompt, counter])  
+    }
+}
+else{
+    localStorage.setItem("JSQuizHS",[prompt, counter]);
+}
+}
+function play() {
+    playWindow.classList.add('hidden');
+    counterSpan.textcontent = counter;
+    displayChallenge();
+    startTime();
  }
  
- playBtn.addEventListener('click', play);
- play();
+playBtn.addEventListener('click', play);
 
 /* <!-- GIVEN I am taking a code quiz -->
 <!-- WHEN I click the start button -->
