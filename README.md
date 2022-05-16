@@ -10,7 +10,8 @@ HTML, JavaScript, CSS
 
 ## Website
 
-    ![Screencapture of Web-Quiz.](assets/images/webquizscreenshot.png)
+https://gelp1987.github.io/web-quiz/
+![Screencapture of Web-Quiz.](assets/images/webquizscreenshot.png)
 
 ## Contribution
 
