@@ -36,7 +36,9 @@ var challenges = [
  var challengeText = document.getElementById('challenge-text');
  var answerBox = document.getElementById('answer-box');
  var counterSpan = document.getElementById('counter');
+ var finalscore = document.getElementById('finalscore');
  var highScoreScreen = document.getElementById('high-score-screen');
+ var timerCounter = document.getElementById('timer-counter');
  
 
     function startTime() {
@@ -90,6 +92,7 @@ else {
 function endQuiz() {
     clearInterval(counterInterval);
     challengeDisplay.classList.add('hidden');
+    timerCounter.classList.add('hidden');
     highScoreScreen.classList.remove('hidden');
     var prompt = window.prompt ('Enter your initials to save your score!')
     console.log(prompt);
@@ -103,6 +106,7 @@ if(highscore !== null){
 else{
     localStorage.setItem("JSQuizHS",[prompt, counter]);
 }
+finalscore.innerHTML = counter;
 }
 function play() {
     playWindow.classList.add('hidden');
@@ -113,15 +117,7 @@ function play() {
  
 playBtn.addEventListener('click', play);
 
-/* <!-- GIVEN I am taking a code quiz -->
-<!-- WHEN I click the start button -->
-<!-- THEN a timer starts and I am presented with a question -->
-<!-- WHEN I answer a question -->
-<!-- THEN I am presented with another question -->
-<!-- WHEN I answer a question incorrectly -->
-<!-- THEN time is subtracted from the clock -->
-<!-- WHEN all questions are answered or the timer reaches 0 -->
-<!-- THEN the game is over -->
+/* 
 <!-- WHEN the game is over -->
 <!-- THEN I can save my initials and score --> 
 */

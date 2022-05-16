@@ -1,5 +1,21 @@
 # web-quiz
 
+## Purpose
+
+A fun little quiz in which coding students can try their speed and view their high score which is saved to their local storage.
+
+## Built with
+
+HTML, JavaScript, CSS
+
+## Website
+
+    ![Screencapture of Web-Quiz.](assets/images/webquizscreenshot.png)
+
+## Contribution
+
+Made with ❤️ by Philip Gelin
+
 <!-- User Story -->
 <!-- AS A coding boot camp student -->
 <!-- I WANT to take a timed quiz on JavaScript fundamentals that stores high scores -->
